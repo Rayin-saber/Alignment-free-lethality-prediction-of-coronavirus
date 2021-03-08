@@ -190,7 +190,7 @@ class AlexNet(nn.Module):
         self.resnext_layer = nn.Sequential(*list(model.children())[1:-1])
         self.Linear_layer1 = nn.Linear(2304, 256)
         self.Linear_layer2 = nn.Linear(256, 3)
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x):
         x = self.conv_layer(x)
@@ -207,7 +207,7 @@ class VGG(nn.Module):
         self.conv_layer = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
         self.resnext_layer = nn.Sequential(*list(model.children())[1:-1])
         self.Linear_layer = nn.Linear(3136, 3)
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x):
         x = self.conv_layer(x)
@@ -226,7 +226,7 @@ class ResNet(nn.Module):
         self.Linear_layer1 = nn.Linear(512, 256)
         self.Linear_layer2 = nn.Linear(256, 3)
         # self.Linear_layer3 = nn.Linear(256, 2)
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x):
         x = self.conv_layer(x)
@@ -245,7 +245,7 @@ class ResNext(nn.Module):
         self.resnext_layer = nn.Sequential(*list(model.children())[1:-1])
         self.Linear_layer1 = nn.Linear(2048, 256)
         self.Linear_layer2 = nn.Linear(256, 3)
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x):
         x = self.conv_layer(x)
@@ -266,7 +266,7 @@ class Inception(nn.Module):
         self.Linear_layer1 = nn.Linear(739328, 256)
         self.Linear_layer2 = nn.Linear(256, 3)
         # self.avg_pool = nn.AdaptiveAvgPool2d(output_size=(1, 1))
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x):
         x = self.conv_layer(x)
